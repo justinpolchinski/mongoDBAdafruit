@@ -1,5 +1,12 @@
 <center><h1>Adafruit Articles</h1></center>
+<button id="scraped">Scrape Articles</button>
+<ul>Articles {{#each article}}
+    <li>{{this.title}}</li>
+    <li>Author: {{this.author}}</li>
+    <li>{{this.url}}</li>
+        {{{this.imgVideo}}}
+    <li>{{this.description}}</li>
 
-<ul>{{#each articles}}
     {{/each}}
 </ul>
+

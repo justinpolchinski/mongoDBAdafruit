@@ -29,23 +29,24 @@ mongoose.connect("mongodb://localhost/adafruitdb");
 
 //Scraping Adafruit
 
-// app.get('/', function (req, res) {
-//     Article.find({"saved": false}, function(error, data) {
-//         var hbsObject = {
-//           article: data
-//         };
-//         console.log(hbsObject);
-//         res.render("home", hbsObject);
-//       });
-//     });
-// //});
+app.get('/', function (req, res) {
+    
+   db.Article.find({"saved": false}, function(error, data) {
+        var hbsObject = {
+          article: data
+        };
+        console.log(hbsObject);
+        res.render("home", hbsObject);
+      });
+    });
+//});
 app.get("/scrape", function(req,res){
     
    request("https://learn.adafruit.com/category/adafruit-io", function(error, response, html) {
        
     var $ = cheerio.load(html);
     
-    var titleCheck;
+    //var titleCheck;
     $(".masonry-block").each(function(i, element) {
     var results = {};
     results.title = $(this).find('.title').find("a").html().split(/\n/g)[1].split(/<br>/g)[0];
@@ -60,14 +61,16 @@ app.get("/scrape", function(req,res){
     console.log("results "+[i]+" imgVideo: " + results.imgVideo);
     db.Article.create(results).then(function(dbArticle){
         console.log("create: " + dbArticle);
+        res.send("Scrape Completed!!!");
     }).catch(function(err){
         console.log("scrape catch");
-        return res.json(err);
+       return res.json(err);
     });
-    res.send("Scrape Completed!!!");
+   
 });
   
   });
+  
 });
 
 
