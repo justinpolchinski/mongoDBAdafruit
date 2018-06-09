@@ -1,1 +1,20 @@
-h1{color: red}
+
+
+#topButtons{
+    margin-bottom: 10px;
+    background: orange;
+}
+ul{
+    border:black 2px solid;
+    background: burlywood;
+    padding: 2%;
+
+}
+li{
+    border: purple solid 2px;
+    background: rgb(156, 124, 124);
+    padding: 3%;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 10px;
+}

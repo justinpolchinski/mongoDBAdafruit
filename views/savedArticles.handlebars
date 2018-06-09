@@ -1,25 +1,19 @@
-<center><h1>Adafruit Articles</h1></center>
+<center><h1>Adafruit Saved Articles </h1></center>
 <div id="topButtons" class="container">
     <div class="row">
-        <div class="col-sm-4"></div>
-        <button class="col-sm-1"id="scraped">Scrape Articles</button>
-        <div class="col-sm-2"></div>
-        <button class="col-sm-1"id="saved">Saved Articles</button>
-        <div class="col-sm-4"></div>
+        <div class="col-sm-5"></div>
+        <a href="/" id = "unsaved"class="col-sm-2"><button>Unsaved Articles</button></a>
+        <div class="col-sm-5"></div>
     </div>
 </div>
-
-  
-<ul> {{#each article}}
+<ul>Articles {{#each article}}
     <li ><article><h2>{{this.title}}</h2>
     Author:{{this.author}}
     <figure>
         <a href="{{this.url}}">{{{this.imgVideo}}}</a>
+        
         <figcaption>{{this.description}}</figcaption>
-    </figure>
-    </article>
-    {{!-- </article> --}}
-    
+    </figure></article>
     <button class="saveArticle btn btn-info btn-lg"data-id="{{this._id}}">Save This</button>
     <button type="button" class="openNotes btn btn-info btn-lg" data-id="{{this._id}}" data-toggle="modal" data-target="#myModal">My Notes/Take Notes</button>
     {{!-- note modal --}}<!-- Modal -->
@@ -44,16 +38,17 @@
                 
                 <div class="modal-footer">
                 <button class="takeNote btn btn-default" data-id="{{this._id}}">Submit Note</button>
-                <button class="deleteNote btn btn-default" >Delete Note</button>
+                <button class="deleteNote btn btn-default">Delete Note</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                
                 </div>
             </div>
             </div>
         </div>
     </div>
-
-{{!-- end of note modal --}}
+</article>
+<br>
+    <button class="deleteArticle btn btn-default"data-id="{{this._id}}">Delete Article</button>
+    
     </li>{{/each}}
 </ul>
-
+<footer>End</footer>
