@@ -23,10 +23,11 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+var MONGODB_URI = "mongodb://heroku_qd6192cn:n2p3do2tucs5ufn7quk1pajdh1@ds153890.mlab.com:53890/heroku_qd6192cn"
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/adafruitdb";
-
+//var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/adafruitdb";
+//mongodb://heroku_qd6192cn:n2p3do2tucs5ufn7quk1pajdh1@ds153890.mlab.com:53890/heroku_qd6192cn
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
