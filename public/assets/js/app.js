@@ -85,8 +85,8 @@ $(".openNotes").on('click',(event)=>{
         noteId = data.note._id;
         sessionStorage.noteId = noteId;
         console.log("OpenNotes: " + data);
-        $("#inpT").empty();
-        $("#inpB").empty();
+        $("#inpT").val("");
+        $("#inpB").val("");
         $("#modalTitle").text(data.note.title);
         $("#notesTaken").text(data.note.body);
         }
